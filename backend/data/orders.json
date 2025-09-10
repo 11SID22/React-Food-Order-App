@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "items": [
+      {
+        "id": "m2",
+        "name": "Margherita Pizza",
+        "price": "320",
+        "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
+        "image": "images/margherita-pizza.jpg",
+        "quantity": 2
+      }
+    ],
+    "customer": {
+      "name": "Jethalal",
+      "email": "tmkoc@gmail.com",
+      "street": "Gokuldham Society, Film City, Santosh Nagar, Goregaon (E), ",
+      "postal-code": "400065",
+      "city": "Mumbai"
+    },
+    "id": "173.26737744467246"
+  }
+]
