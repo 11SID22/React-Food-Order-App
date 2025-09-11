@@ -25,6 +25,7 @@ const Checkout = () => {
     isLoading: isSending,
     error,
     sendRequest,
+    clearData,
   } = useHttp("http://localhost:3000/orders", requestConfig);
 
   const cartTotal = cartCtx.items.reduce(
@@ -34,6 +35,12 @@ const Checkout = () => {
 
   function handleCloseCheckout() {
     userProgressCtx.hideCheckout();
+  }
+
+  function handleClearCart() {
+    userProgressCtx.hideCheckout();
+    cartCtx.clearCart();
+    clearData();
   }
 
   function handleSubmit(event) {
@@ -63,6 +70,25 @@ const Checkout = () => {
 
   if (isSending) {
     actions = <span>Sending order data...</span>;
+  }
+
+  if (data && !error) {
+    return (
+      <Modal
+        open={userProgressCtx.progress === "checkout"}
+        onClose={handleClearCart}
+      >
+        <h2>Success!</h2>
+        <p>Your order was submitted successfully.</p>
+        <p>
+          We will get back to you with more details via WhatsApp within the new
+          few minutes.
+        </p>
+        <p className="modal-actions">
+          <Button onClick={handleClearCart}>Okay</Button>
+        </p>
+      </Modal>
+    );
   }
 
   return (
